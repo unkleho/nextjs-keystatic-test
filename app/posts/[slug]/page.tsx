@@ -8,17 +8,16 @@ const reader = createReader(process.cwd(), keystaticConfig);
 
 export default async function Post({ params }: { params: { slug: string } }) {
   const post = await reader.collections.posts.read(params.slug);
-  console.log({ params, post });
-
-  if (!post) {
-    return null;
-  }
+  console.log({ params, post, posts: reader.collections.posts });
 
   return (
     <>
-      <h1>{post?.title}</h1>
-
-      <DocumentRenderer document={await post.content()} />
+      {post && (
+        <>
+          <h1>{post?.title}</h1>
+          <DocumentRenderer document={await post.content()} />
+        </>
+      )}
 
       <br />
       <Link href="/">Back home</Link>
