@@ -2,11 +2,12 @@ import { config, fields, collection } from '@keystatic/core';
 
 export default config({
   storage: {
-    kind: 'github',
-    repo: {
-      name: 'nextjs-keystatic-test',
-      owner: 'unkleho',
-    },
+    kind: 'local',
+    // kind: 'github',
+    // repo: {
+    //   name: 'nextjs-keystatic-test',
+    //   owner: 'unkleho',
+    // },
   },
   collections: {
     posts: collection({
