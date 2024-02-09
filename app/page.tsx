@@ -9,13 +9,17 @@ const reader = createReader(process.cwd(), keystaticConfig);
 export default async function Page() {
   // 2. Read the "Posts" collection
   const posts = await reader.collections.posts.all();
+
   return (
-    <ul>
-      {posts.map((post) => (
-        <li key={post.slug}>
-          <Link href={`/posts/${post.slug}`}>{post.entry.title}</Link>
-        </li>
-      ))}
-    </ul>
+    <div>
+      <h1>Home</h1>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.slug}>
+            <Link href={`/posts/${post.slug}`}>{post.entry.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
