@@ -7,18 +7,18 @@ import Link from 'next/link';
 const reader = createReader(process.cwd(), keystaticConfig);
 
 export default async function Post({ params }: { params: { slug: string } }) {
-  console.log({ params });
   const post = await reader.collections.posts.read(params.slug);
+  console.log({ params, post });
 
-  // if (!post) {
-  //   return null;
-  // }
+  if (!post) {
+    return null;
+  }
 
   return (
     <>
       <h1>{post?.title}</h1>
 
-      {/* <DocumentRenderer document={await post.content()} /> */}
+      <DocumentRenderer document={await post.content()} />
 
       <br />
       <Link href="/">Back home</Link>
