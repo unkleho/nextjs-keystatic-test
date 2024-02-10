@@ -5,15 +5,22 @@ const isProd = Boolean(process.env.VERCEL_ENV);
 console.log('keystatic.config', process.env.VERCEL_ENV);
 
 export default config({
-  storage: isProd
-    ? {
-        kind: 'github',
-        repo: {
-          name: 'nextjs-keystatic-test',
-          owner: 'unkleho',
-        },
-      }
-    : { kind: 'local' },
+  storage: {
+    kind: 'github',
+    repo: {
+      name: 'nextjs-keystatic-test',
+      owner: 'unkleho',
+    },
+  },
+  // storage: isProd
+  //   ? {
+  //       kind: 'github',
+  //       repo: {
+  //         name: 'nextjs-keystatic-test',
+  //         owner: 'unkleho',
+  //       },
+  //     }
+  //   : { kind: 'local' },
   collections: {
     posts: collection({
       label: 'Posts',
