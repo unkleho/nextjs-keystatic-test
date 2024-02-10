@@ -8,7 +8,12 @@ const reader = createReader(process.cwd(), keystaticConfig);
 
 export default async function Post({ params }: { params: { slug: string } }) {
   const post = await reader.collections.posts.read(params.slug);
-  console.log({ params, post, posts: reader.collections.posts });
+  try {
+    const post2 = await reader.collections.posts.readOrThrow(params.slug);
+    console.log({ params, post, post2, posts: reader.collections.posts });
+  } catch (e) {
+    console.log('readOrThrow', e);
+  }
 
   return (
     <>
