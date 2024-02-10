@@ -1,14 +1,17 @@
 import { config, fields, collection } from '@keystatic/core';
 
+const isProd = Boolean(process.env.VERCEL_ENV);
+
 export default config({
-  storage: {
-    kind: 'local',
-    // kind: 'github',
-    // repo: {
-    //   name: 'nextjs-keystatic-test',
-    //   owner: 'unkleho',
-    // },
-  },
+  storage: isProd
+    ? {
+        kind: 'github',
+        repo: {
+          name: 'nextjs-keystatic-test',
+          owner: 'unkleho',
+        },
+      }
+    : { kind: 'local' },
   collections: {
     posts: collection({
       label: 'Posts',

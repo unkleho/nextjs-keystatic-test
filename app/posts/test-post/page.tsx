@@ -21,6 +21,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
       list,
       cwd: process.cwd(),
       keystaticConfig,
+      VERCEL_ENV: process.env.VERCEL_ENV,
     });
   } catch (e) {
     console.log('readOrThrow', e);
