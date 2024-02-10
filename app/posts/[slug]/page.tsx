@@ -19,6 +19,8 @@ export default async function Post({ params }: { params: { slug: string } }) {
       posts: reader.collections.posts,
       allPosts,
       list,
+      cwd: process.cwd(),
+      keystaticConfig,
     });
   } catch (e) {
     console.log('readOrThrow', e);
