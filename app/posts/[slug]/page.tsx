@@ -5,7 +5,7 @@ import keystaticConfig from '../../../keystatic.config';
 import Link from 'next/link';
 import { asyncComponent } from '@/lib/async-component';
 
-const reader = createReader(process.cwd(), keystaticConfig);
+const reader = createReader('', keystaticConfig);
 
 export default async function PostPage({
   params,
