@@ -42,12 +42,14 @@ export default async function PostPage({
 }
 
 const Post = asyncComponent(async function EventTalks(props: { slug: string }) {
-  const post = await reader.collections.posts.readOrThrow(props.slug);
+  const post = await reader.collections.posts.readOrThrow(props.slug, {
+    resolveLinkedFiles: true,
+  });
 
   return (
     <div className="mx-auto mt-8 max-w-5xl px-6">
       <h2 className="mt-20 text-4xl font-bold">{post.title}</h2>
-      <DocumentRenderer document={await post.content()} />
+      {/* <DocumentRenderer document={await post.content()} /> */}
     </div>
   );
 });
