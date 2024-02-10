@@ -2,6 +2,8 @@ import { config, fields, collection } from '@keystatic/core';
 
 const isProd = Boolean(process.env.VERCEL_ENV);
 
+console.log('keystatic.config', process.env.VERCEL_ENV);
+
 export default config({
   storage: isProd
     ? {
