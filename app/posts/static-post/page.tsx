@@ -3,17 +3,18 @@ import { DocumentRenderer } from '@keystatic/core/renderer';
 import { createReader } from '@keystatic/core/reader';
 import keystaticConfig from '../../../keystatic.config';
 import Link from 'next/link';
+import { reader } from '@/lib/reader';
 
-const reader = createReader(process.cwd(), keystaticConfig);
+// const reader = createReader(process.cwd(), keystaticConfig);
 
 export default async function Post({ params }: { params: { slug: string } }) {
   // Works locally and on Vercel
-  const post = await reader.collections.posts.read('test-3');
+  const post = await reader().collections.posts.read('test-3');
 
   try {
     // Works locally and on Vercel
-    const allPosts = await reader.collections.posts.all();
-    const list = await reader.collections.posts.list();
+    const allPosts = await reader().collections.posts.all();
+    const list = await reader().collections.posts.list();
 
     console.log({
       params,

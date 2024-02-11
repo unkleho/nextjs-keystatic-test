@@ -3,9 +3,9 @@ import { DocumentRenderer } from '@keystatic/core/renderer';
 import { createReader } from '@keystatic/core/reader';
 import keystaticConfig from '../../../keystatic.config';
 import Link from 'next/link';
-import { asyncComponent } from '@/lib/async-component';
+import { reader } from '@/lib/reader';
 
-const reader = createReader(process.cwd(), keystaticConfig);
+// const reader = createReader(process.cwd(), keystaticConfig);
 
 export default async function PostPage({
   params,
@@ -16,14 +16,14 @@ export default async function PostPage({
 
   try {
     // These work locally, but not on Vercel
-    post = await reader.collections.posts.read(params.slug);
-    const allPosts = await reader.collections.posts.all();
-    const list = await reader.collections.posts.list();
+    post = await reader().collections.posts.read(params.slug);
+    const allPosts = await reader().collections.posts.all();
+    const list = await reader().collections.posts.list();
 
     console.log({
       params,
       post,
-      posts: reader.collections.posts,
+      posts: reader().collections.posts,
       allPosts,
       list,
       cwd: process.cwd(),

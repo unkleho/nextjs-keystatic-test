@@ -28,6 +28,7 @@ export default config({
           images: true,
         }),
       },
+      previewUrl: `/preview/start?branch={branch}&to=/posts/{slug}`,
     }),
   },
 });
