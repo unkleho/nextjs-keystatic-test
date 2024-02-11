@@ -7,16 +7,17 @@ import Link from 'next/link';
 const reader = createReader(process.cwd(), keystaticConfig);
 
 export default async function Post({ params }: { params: { slug: string } }) {
-  const post = await reader.collections.posts.read('test');
+  // Works locally and on Vercel
+  const post = await reader.collections.posts.read('test-3');
+
   try {
+    // Works locally and on Vercel
     const allPosts = await reader.collections.posts.all();
     const list = await reader.collections.posts.list();
-    const post2 = await reader.collections.posts.read(params.slug);
+
     console.log({
       params,
       post,
-      post2,
-      posts: reader.collections.posts,
       allPosts,
       list,
       cwd: process.cwd(),
@@ -29,15 +30,16 @@ export default async function Post({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <h1>Test Post (not dynamic)</h1>
-
       {post && (
         <>
-          <h1>{post?.title}</h1>
+          <h1 className="mb-4 font-semibold text-2xl">{post?.title}</h1>
           <DocumentRenderer document={await post.content()} />
         </>
       )}
 
+      <br />
+
+      <p>(static page works on local and Vercel)</p>
       <br />
       <Link href="/">Back home</Link>
     </>
