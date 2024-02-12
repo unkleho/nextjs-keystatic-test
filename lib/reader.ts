@@ -18,7 +18,7 @@ export const reader = cache(() => {
     if (branch) {
       return createGitHubReader(keystaticConfig, {
         // Replace the below with your repo org an name
-        repo: 'REPO_ORG/REPO_NAME',
+        repo: 'unkleho/nextjs-keystatic-test',
         ref: branch,
         // Assuming an existing GitHub app
         token: cookies().get('keystatic-gh-access-token')?.value,

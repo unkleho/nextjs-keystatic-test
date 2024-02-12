@@ -17,7 +17,6 @@
 }
 
 body {
-  padding: 1rem;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -27,6 +26,10 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-a:link {
+.app {
+  @apply max-w-xl m-4 mx-auto;
+}
+
+.app a:link {
   @apply underline;
 }
