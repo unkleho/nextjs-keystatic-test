@@ -23,10 +23,10 @@ export default function RootLayout({
         {children}
 
         {isEnabled && (
-          <div className="mt-8">
+          <div className="absolute right-4 bottom-4">
             Draft mode ({cookies().get('ks-branch')?.value})
             <form method="POST" action="/preview/end">
-              <button>End preview</button>
+              <button className="underline">End preview</button>
             </form>
           </div>
         )}
