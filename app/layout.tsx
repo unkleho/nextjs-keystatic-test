@@ -19,16 +19,18 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
 
-      {isEnabled && (
-        <div>
-          Draft mode ({cookies().get('ks-branch')?.value})
-          <form method="POST" action="/preview/end">
-            <button>End preview</button>
-          </form>
-        </div>
-      )}
+        {isEnabled && (
+          <div>
+            Draft mode ({cookies().get('ks-branch')?.value})
+            <form method="POST" action="/preview/end">
+              <button>End preview</button>
+            </form>
+          </div>
+        )}
+      </body>
     </html>
   );
 }
