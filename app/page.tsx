@@ -6,7 +6,14 @@ export default async function Page() {
 
   return (
     <div className="app">
-      <h1 className="mb-4 font-semibold text-2xl">Home</h1>
+      <h1 className="mb-4 font-semibold text-2xl">
+        Next JS + Keystatic example
+      </h1>
+
+      <p className="mb-4">
+        With Github integration and draft mode. Edit content{' '}
+        <Link href={'/keystatic'}>here</Link>.
+      </p>
 
       <ul className="list-disc mb-8 pl-4">
         {posts.map((post) => (
