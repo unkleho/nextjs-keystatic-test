@@ -53,3 +53,14 @@ export default async function PostPage({
     </>
   );
 }
+
+export async function generateStaticParams() {
+  const slugs = await reader().collections.posts.list();
+  console.log(slugs);
+
+  return slugs;
+
+  // return slugs.map((slug) => ({
+  //   slug: slug.split('/'),
+  // }));
+}
