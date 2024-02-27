@@ -44,7 +44,7 @@ export default config({
     authors: collection({
       label: 'Authors',
       slugField: 'title',
-      path: 'src/content/authors/*',
+      path: 'content/authors/*',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
